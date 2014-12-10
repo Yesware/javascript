@@ -180,15 +180,20 @@
 
 ## Strings
 
-  - Use double quotes `""` for strings
+  - Double quotes `""` and single quotes `''` are both acceptable.
 
-    ```javascript
-    // bad
-    var name = 'Bob Parr';
+  - For situations where the string contains double quotes, wrap the string in single quotes.
 
-    // good
-    var name = "Bob Parr";
-    ```
+  - For situations where the string contains single quotes, wrap the string in double quotes.
+
+  ```javascript
+  // bad
+  var name = "He said \"something\" to me";
+
+  // good
+  var name = 'He said "something" to me';
+  var other = "It's raining outside";
+  ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
   - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
@@ -568,30 +573,6 @@
     if ([0]) {
       // true
       // An array is an object, objects evaluate to true
-    }
-    ```
-
-  - Use shortcuts.
-
-    ```javascript
-    // bad
-    if (name !== '') {
-      // ...stuff...
-    }
-
-    // good
-    if (name) {
-      // ...stuff...
-    }
-
-    // bad
-    if (collection.length > 0) {
-      // ...stuff...
-    }
-
-    // good
-    if (collection.length) {
-      // ...stuff...
     }
     ```
 
