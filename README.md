@@ -406,27 +406,13 @@
     var i;
     ```
 
-  - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+  - Variables should be declared and assigned adjacent to their usage to maximize code comprehension and readability.
+
+    (Some style guides advocate declaration and assignment be moved to the top of the scope to help avoid issues related to variable hoisting. Our guideline is to prefer code comprehension and readability over avoidance of relatively rare hoisting issues.)
 
     ```javascript
     // bad
     function() {
-      test();
-      console.log('doing stuff..');
-
-      //..other stuff..
-
-      var name = getName();
-
-      if (name === 'test') {
-        return false;
-      }
-
-      return name;
-    }
-
-    // good
-    function() {
       var name = getName();
 
       test();
@@ -441,26 +427,19 @@
       return name;
     }
 
-    // bad
-    function() {
-      var name = getName();
-
-      if (!arguments.length) {
-        return false;
-      }
-
-      return true;
-    }
-
     // good
     function() {
-      if (!arguments.length) {
+      test();
+      console.log('doing stuff..');
+
+      //..other stuff..
+
+      var name = getName();
+      if (name === 'test') {
         return false;
       }
 
-      var name = getName();
-
-      return true;
+      return name;
     }
     ```
 
